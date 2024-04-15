@@ -13,10 +13,10 @@
 Hyperspectral image produces high spectral resolution at the sacrifice of spatial resolution. Without reducing the spectral resolution, improving the resolution in the spatial domain is a very challenging problem. Motivated by the discovery that hyperspectral image exhibits high similarity between adjacent bands in a large spectral range, in this paper, we explore a new structure for hyperspectral image super-resolution (DualSR), leading to a dual-stage design, i.e., coarse stage and fine stage. In coarse stage, five bands with high similarity in a certain spectral range are divided into three groups, and the current band is guided to study the potential knowledge. Under the action of alternative spectral fusion mechanism, the coarse SR image is super-resolved in band-by-band. In order to build model from a global perspective, an enhanced back-projection method via spectral angle constraint is developed in fine stage to learn the content of spatial-spectral consistency, dramatically improving the performance gain. Extensive experiments demonstrate the effectiveness of the proposed coarse stage and fine stage. Besides, our network produces state-of-the-art results against existing works in terms of spatial reconstruction and spectral fidelity.  
 
 ## Motivation  
-Hyperspectral image produces high spectral resolution at the sacrifice of spatial resolution, which cannot meet the requirements of some scene applications. Considering this dilemma, the researchers propose hyperspectral image super-resolution (SR). Without reducing the number of bands, hyperspectral image SR aims to find a high-resolution (HR) image with better visual quality and refined details from counterpart low-resolution (LR) version in spatial domain. SR is a greatly challenging task in computer vision, because it is an ill-posed inverse problem.
-- Single hyperspectral image SR without any auxiliary information solely focuses on spatial knowledge, leading to inferior spectral fidelity.
-- Various hyperspectral image SR algorithms based on 3D convolution ignore the differential treatment of spectral and spatial domain analysis.
-- Inspired by high similarity between adjacent bands, Wang et al. create a novel dual-channel structure to establish network. Impressively, unlike existing methods, it integrates the information of single LR band and two adjacent LR bands to achieve super-resolved band. At present, there is extremely little research using this novel input mode.
+Hyperspectral image produces high spectral resolution at the sacrifice of spatial resolution, which cannot meet the requirements of some scene applications. Considering this dilemma, the researchers propose hyperspectral image super-resolution (SR). Without reducing the number of bands, hyperspectral image SR aims to find a high-resolution (HR) image with better visual quality and refined details from counterpart low-resolution (LR) version in spatial domain. SR is a greatly challenging task in computer vision, because it is an ill-posed inverse problem.  
+- Single hyperspectral image SR without any auxiliary information solely focuses on spatial knowledge, leading to inferior spectral fidelity.  
+- Various hyperspectral image SR algorithms based on 3D convolution ignore the differential treatment of spectral and spatial domain analysis.  
+- Inspired by high similarity between adjacent bands, Wang et al. create a novel dual-channel structure to establish network. Impressively, unlike existing methods, it integrates the information of single LR band and two adjacent LR bands to achieve super-resolved band. At present, there is extremely little research using this novel input mode.  
 - In fact, within a certain spectral range, relatively distant bands can also explicitly assist the current band to reconstruction, because these bands are also similar, but the similarity is relatively small. If more adjacent bands within a relatively large spectral range are utilized, it is beneficial to supplement the missing knowledge during the reconstruction of current band. Therefore, the key problem is how to effectively use the adjacent bands to boost performance.  
 
 ## Dependencies  
@@ -33,17 +33,17 @@ Hyperspectral image produces high spectral resolution at the sacrifice of spatia
 Three public datasets, i.e., [CAVE](https://www1.cs.columbia.edu/CAVE/databases/multispectral/ "CAVE") and [Harvard](https://dataverse.harvard.edu/ "Harvard") are employed to verify the effectiveness of the proposed DualSR.  
 
 - In our work, we randomly select **80%** of the data as the training set and the rest for testing.  
-- We augment the given training data by choosing **24** patches. With respect to each patch, its size is scaled **1**, **0.75**, and **0.5** times, respectively. We rotate these patches **90°** and flip them horizontally. Through various blur kernels, we then subsample these patches into LR hyperspectral images with the size of **L × 32 × 32**.
+- We augment the given training data by choosing **24** patches. With respect to each patch, its size is scaled **1**, **0.75**, and **0.5** times, respectively. We rotate these patches **90°** and flip them horizontally. Through various blur kernels, we then subsample these patches into LR hyperspectral images with the size of **L × 32 × 32**.  
 
 ## Implementation  
-- For our network, the convolution kernel after concatenation is set to **1 × 1**, which reduces the number of channels.
-- We adopt sub-pixel convolution layer to upscale the features into HR space in terms of upsampling operation. 
-- The kernel of other convolution operations involved in the network is fixed to **3 × 3**, and the number of convolution kernels is defined as **64**.
-        parser.add_argument('--n_feats', type=int, default=64, help='number of feature maps')
-- In the training phase, our network is trained using **L1** loss function. The mini-batch is set to **64**. 
-- We optimize our network using **ADAM** optimizer with **β1=0.9** and **β2=0.999** and initial learning rate **10^−4**.
-        parser.add_argument("--lr", type=int, default=1e-4, help="lerning rate")
-- For learning rate, it is gradually updated by a half at every **30** epochs.
+- For our network, the convolution kernel after concatenation is set to **1 × 1**, which reduces the number of channels.  
+- We adopt sub-pixel convolution layer to upscale the features into HR space in terms of upsampling operation.  
+- The kernel of other convolution operations involved in the network is fixed to **3 × 3**, and the number of convolution kernels is defined as **64**.  
+        parser.add_argument('--n_feats', type=int, default=64, help='number of feature maps')  
+- In the training phase, our network is trained using **L1** loss function. The mini-batch is set to **64**.  
+- We optimize our network using **ADAM** optimizer with **β1=0.9** and **β2=0.999** and initial learning rate **10^−4**.  
+        parser.add_argument("--lr", type=int, default=1e-4, help="lerning rate")  
+- For learning rate, it is gradually updated by a half at every **30** epochs.  
 
 ## Result  
 - To quantitatively evaluate the proposed method, we apply Peak Signal-to-Noise Ratio (**PSNR**), Structural SIMilarity (**SSIM**), and Spectral Angle Mapper (**SAM**). Among these metrics, PSNR and SSIM are to evaluate the performance of super-resolved hyperspectral image in spatial domain. Generally, the higher their values are, the better the performance is. SAM is to analyze the performance of restored image in spectral domain. The smaller the value is, the less the spectral distortion is.   
@@ -51,7 +51,7 @@ Three public datasets, i.e., [CAVE](https://www1.cs.columbia.edu/CAVE/databases/
 ![TABLE_VII](https://raw.githubusercontent.com/qianngli/Images/master/DualSR/TABLE_VII.png)  
 
 - Using known bicubic downsampling condition, we compare our proposed DualSR with existing multiple approaches on CAVE and Harvard datasets, including **3D-FCNN**, **EDSR**, **SSPSR**, **MCNet**, **SFCSR**, **ERCSR**.  
-  - **Figs. 1 and 2** present visual example for scale factor × 4 on two datasets. One observe that our method produces low absolute errors. In particular, there are more shallow edges in some positions, which indicates that the proposed approach can generate sharper edges and finer details. It is consistent with the analysis in Tables VI and VII, which further demonstrates that our approach can simultaneously learn spectral and spatial knowledge while generating diverse textures.
+  - **Figs. 1 and 2** present visual example for scale factor × 4 on two datasets. One observe that our method produces low absolute errors. In particular, there are more shallow edges in some positions, which indicates that the proposed approach can generate sharper edges and finer details. It is consistent with the analysis in Tables VI and VII, which further demonstrates that our approach can simultaneously learn spectral and spatial knowledge while generating diverse textures.  
 
     <div align="center">
       
@@ -63,7 +63,7 @@ Three public datasets, i.e., [CAVE](https://www1.cs.columbia.edu/CAVE/databases/
 
     </div>
     
-  - **Fig. 3** displays the spectral distortion of super-resolved hyperspectral image by randomly choosing two pixels on two datasets, respectively. We can see that our DualSR maintains the same curve as the ground-truth in most cases. It validates that the proposed method can yield higher spectral fidelity against other approaches.
+  - **Fig. 3** displays the spectral distortion of super-resolved hyperspectral image by randomly choosing two pixels on two datasets, respectively. We can see that our DualSR maintains the same curve as the ground-truth in most cases. It validates that the proposed method can yield higher spectral fidelity against other approaches.  
 
     <div align="center">
 
