@@ -30,7 +30,7 @@ Hyperspectral image produces high spectral resolution at the sacrifice of spatia
   - PyTorch == 1.0: `pip install tensorboardX`
 
 ## Dataset Preparation 
-Three public datasets, i.e., [CAVE](https://www1.cs.columbia.edu/CAVE/databases/multispectral/ "CAVE") and [Harvard](https://dataverse.harvard.edu/ "Harvard") are employed to verify the effectiveness of the proposed DualSR.  
+Two public datasets, i.e., [CAVE](https://www1.cs.columbia.edu/CAVE/databases/multispectral/ "CAVE") and [Harvard](https://dataverse.harvard.edu/ "Harvard") are employed to verify the effectiveness of the proposed DualSR.  
 
 - In our work, we randomly select **80%** of the data as the training set and the rest for testing.  
 - We augment the given training data by choosing **24** patches. With respect to each patch, its size is scaled **1**, **0.75**, and **0.5** times, respectively. We rotate these patches **90°** and flip them horizontally. Through various blur kernels, we then subsample these patches into LR hyperspectral images with the size of **L × 32 × 32**.  
