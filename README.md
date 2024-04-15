@@ -32,15 +32,17 @@ Hyperspectral image produces high spectral resolution at the sacrifice of spatia
 ## Dataset Preparation 
 Three public datasets, i.e., [CAVE](https://www1.cs.columbia.edu/CAVE/databases/multispectral/ "CAVE") and [Harvard](https://dataverse.harvard.edu/ "Harvard") are employed to verify the effectiveness of the proposed DualSR.  
 
-In our work, we randomly select **80%** of the data as the training set and the rest for testing.  
-We augment the given training data by choosing **24** patches. With respect to each patch, its size is scaled **1**, **0.75**, and **0.5** times, respectively. We rotate these patches **90°** and flip them horizontally. Through various blur kernels, we then subsample these patches into LR hyperspectral images with the size of **L × 32 × 32**.
+- In our work, we randomly select **80%** of the data as the training set and the rest for testing.  
+- We augment the given training data by choosing **24** patches. With respect to each patch, its size is scaled **1**, **0.75**, and **0.5** times, respectively. We rotate these patches **90°** and flip them horizontally. Through various blur kernels, we then subsample these patches into LR hyperspectral images with the size of **L × 32 × 32**.
 
 ## Implementation  
 - For our network, the convolution kernel after concatenation is set to **1 × 1**, which reduces the number of channels.
 - We adopt sub-pixel convolution layer to upscale the features into HR space in terms of upsampling operation. 
-- The kernel of other convolution operations involved in the network is fixed to **3 × 3**, and the number of convolution kernels is defined as **64**. 
+- The kernel of other convolution operations involved in the network is fixed to **3 × 3**, and the number of convolution kernels is defined as **64**.
+        parser.add_argument('--n_feats', type=int, default=64, help='number of feature maps')
 - In the training phase, our network is trained using **L1** loss function. The mini-batch is set to **64**. 
-- We optimize our network using **ADAM** optimizer with **β1=0.9** and **β2=0.999** and initial learning rate **10^−4** .
+- We optimize our network using **ADAM** optimizer with **β1=0.9** and **β2=0.999** and initial learning rate **10^−4**.
+        parser.add_argument("--lr", type=int, default=1e-4, help="lerning rate")
 - For learning rate, it is gradually updated by a half at every **30** epochs.
 
 ## Result  
