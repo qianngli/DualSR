@@ -39,10 +39,14 @@ Three public datasets, i.e., [CAVE](https://www1.cs.columbia.edu/CAVE/databases/
 - For our network, the convolution kernel after concatenation is set to **1 × 1**, which reduces the number of channels.  
 - We adopt sub-pixel convolution layer to upscale the features into HR space in terms of upsampling operation.  
 - The kernel of other convolution operations involved in the network is fixed to **3 × 3**, and the number of convolution kernels is defined as **64**.  
-        parser.add_argument('--n_feats', type=int, default=64, help='number of feature maps')  
+
+        parser.add_argument('--n_feats', type=int, default=64, help='number of feature maps')
+  
 - In the training phase, our network is trained using **L1** loss function. The mini-batch is set to **64**.  
 - We optimize our network using **ADAM** optimizer with **β1=0.9** and **β2=0.999** and initial learning rate **10^−4**.  
-        parser.add_argument("--lr", type=int, default=1e-4, help="lerning rate")  
+
+        parser.add_argument("--lr", type=int, default=1e-4, help="lerning rate")
+  
 - For learning rate, it is gradually updated by a half at every **30** epochs.  
 
 ## Result  
