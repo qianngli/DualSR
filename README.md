@@ -54,12 +54,12 @@ Algorithm 1 Dual-Stage Hyperspectral Image SR Algorithm (DualSR)
 > Output: Super-resolved hyperspectral image $I_{SR}$  
 > Randomly initialize coarse model parameters θ ;  
 > while not converged do  
-> : Sample LR-HR batch;  
-> : while i≤L do  
->   : Partiton bands into three groups by Eqs. 2-4;  
->   : Update θ by excuting coarse model;  
->   : i←i+ 1;  
-> : end  
+> &ensp; Sample LR-HR batch;  
+> &ensp; while i≤L do  
+> &ensp;&ensp; Partiton bands into three groups by Eqs. 2-4;  
+> &ensp;&ensp; Update θ by excuting coarse model;  
+> &ensp;&ensp; i←i+ 1;  
+> &ensp; end  
 > end  
 > Generate coarse model parameters θс;  
 > Obtain coarse SR results U and V in terms of scale factor s;  
