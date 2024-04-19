@@ -28,10 +28,11 @@ We propose a novel structure for hyperspectral image SR via adjacent spectral fu
 <div align="center">
   
   ![CoarSR](https://raw.githubusercontent.com/qianngli/Images/master/DualSR/CoarSR.png)  
-  *Fig. 1. Overview of the proposed CoarSR for hyperspectral image SR in coarse stage.*
- 
+  
 </div>
 
+ *Fig. 1. Overview of the proposed CoarSR for hyperspectral image SR in coarse stage.*
+ 
 - **Neighboring Band Partition (NBP)** groups a target band with its adjacent bands to enhance the relevance and utilization of band information, optimizing the super-resolution reconstruction process.
 - **Adjacent Spectral Fusion Mechanism (ASFM)** enhances image quality in hyperspectral image super-resolution by fusing information within and between groups, strengthening the integration of spatial and spectral data.
 - **Feature Context Fusion (FCF)** module enhances inter-band consistency and feature expression by fusing features of consecutive bands, akin to the operation of Recurrent Neural Networks (RNNs).
@@ -42,9 +43,10 @@ Back-projection optimizes the reconstruction error through an efficient iterativ
 <div align="center">
   
   ![Enhanced back-projection](https://raw.githubusercontent.com/qianngli/Images/master/DualSR/Enhanced_back_projection.png)  
-  *Fig. 2. Enhanced back-projection method via spectral angle constraint.*
  
 </div>
+
+*Fig. 2. Enhanced back-projection method via spectral angle constraint.*
 
 ## Algorithm  
 
@@ -102,8 +104,14 @@ Two public datasets, i.e., [CAVE](https://www1.cs.columbia.edu/CAVE/databases/mu
 - To quantitatively evaluate the proposed method, we apply Peak Signal-to-Noise Ratio (**PSNR**), Structural SIMilarity (**SSIM**), and Spectral Angle Mapper (**SAM**). Among these metrics, PSNR and SSIM are to evaluate the performance of super-resolved hyperspectral image in spatial domain. Generally, the higher their values are, the better the performance is. SAM is to analyze the performance of restored image in spectral domain. The smaller the value is, the less the spectral distortion is.
 - Using known bicubic downsampling condition, we compare our proposed DualSR with existing multiple approaches on CAVE and Harvard datasets, including **3D-FCNN**, **EDSR**, **SSPSR**, **MCNet**, **SFCSR**, **ERCSR**.  
 ### Quantitative Evaluation
-![TABLE_VI](https://raw.githubusercontent.com/qianngli/Images/master/DualSR/TABLE_VI.png)  
-![TABLE_VII](https://raw.githubusercontent.com/qianngli/Images/master/DualSR/TABLE_VII.png)  
+
+<div align="center">
+
+  ![TABLE_VI](https://raw.githubusercontent.com/qianngli/Images/master/DualSR/TABLE_VI.png)  
+  ![TABLE_VII](https://raw.githubusercontent.com/qianngli/Images/master/DualSR/TABLE_VII.png)  
+
+</div>
+
 ### Qualitative Evaluation
 - **Figs. 3 and 4** present visual example for scale factor × 4 on two datasets. One observe that our method produces low absolute errors. In particular, there are more shallow edges in some positions, which indicates that the proposed approach can generate sharper edges and finer details. It is consistent with the analysis in Tables VI and VII, which further demonstrates that our approach can simultaneously learn spectral and spatial knowledge while generating diverse textures.  
 
@@ -111,20 +119,21 @@ Two public datasets, i.e., [CAVE](https://www1.cs.columbia.edu/CAVE/databases/mu
       
     ![Fig8](https://raw.githubusercontent.com/qianngli/Images/master/DualSR/Fig8.png)  
     *Fig. 3. Visual results in terms of spatial domain with existing SR methods on CAVE dataset. The results of balloons image are evaluated for scale factor × 4. The first line denotes SR results of 10-th band, and the second line denotes SR results of 20-th band.*  
-    
     ![Fig9](https://raw.githubusercontent.com/qianngli/Images/master/DualSR/Fig9.png)  
-    *Fig. 4. Visual results in terms of spatial domain with existing SR methods on Harvard dataset. The results of imgd5 image are evaluated for scale factor × 4. The first line denotes SR results of 10-th band, and the second line denotes SR results of 20-th band.*  
-
-  </div>
     
+  </div>
+  
+*Fig. 4. Visual results in terms of spatial domain with existing SR methods on Harvard dataset. The results of imgd5 image are evaluated for scale factor × 4. The first line denotes SR results of 10-th band, and the second line denotes SR results of 20-th band.*  
+
 - **Fig. 5** displays the spectral distortion of super-resolved hyperspectral image by randomly choosing two pixels on two datasets, respectively. We can see that our DualSR maintains the same curve as the ground-truth in most cases. It validates that the proposed method can yield higher spectral fidelity against other approaches.  
 
   <div align="center">
 
     ![Fig10](https://raw.githubusercontent.com/qianngli/Images/master/DualSR/Fig10.png)  
-    *Fig. 5. Visual comparison in terms of spectral domain by randomly selecting two pixels for scale factor × 4. The two on the left are the results of balloons image on CAVE dataset. The two on the right are the results of imgd5 image on Harvard dataset. Note that to avoid confusion, only two representative algorithms are compared with our methods.*  
-
+    
   </div>
+
+*Fig. 5. Visual comparison in terms of spectral domain by randomly selecting two pixels for scale factor × 4. The two on the left are the results of balloons image on CAVE dataset. The two on the right are the results of imgd5 image on Harvard dataset. Note that to avoid confusion, only two representative algorithms are compared with our methods.*  
 
 ## Citation 
 [1] **Q. Li**, Q. Wang, and X. Li, “Exploring the Relationship Between 2D/3D Convolution for Hyperspectral Image Super-Resolution,” *IEEE Transactions on Geoscience and Remote Sensing*, vol. 59, no. 10, pp. 8693-8703, 2021.  
