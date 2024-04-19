@@ -19,6 +19,57 @@ Hyperspectral image produces high spectral resolution at the sacrifice of spatia
 - Inspired by high similarity between adjacent bands, Wang et al. create a novel dual-channel structure to establish network. Impressively, unlike existing methods, it integrates the information of single LR band and two adjacent LR bands to achieve super-resolved band. At present, there is extremely little research using this novel input mode.  
 - In fact, within a certain spectral range, relatively distant bands can also explicitly assist the current band to reconstruction, because these bands are also similar, but the similarity is relatively small. If more adjacent bands within a relatively large spectral range are utilized, it is beneficial to supplement the missing knowledge during the reconstruction of current band. Therefore, the key problem is how to effectively use the adjacent bands to boost performance.  
 
+## Architecture
+Our method consists of two steps: coarse stage and fine stage. In coarse stage, the coarse hyperspectral image is restored in band-by-band using supervised way. Note that the method is our [conference version](https://ieeexplore.ieee.org/document/9413980). For ease of description, the method is named CoarSR. During this process, the current band is assisted to enhance the exploration ability through four adjacent bands. After obtaining coarse result, we adopt unsupervised manner in fine stage to globally learn the information, which further optimizes result.  
+
+### Coarse stage
+We propose a novel structure for hyperspectral image SR via adjacent spectral fusion, whose flowchart is shown in Fig. 1. The overview of coarse stage mainly covers three modules, involving neighboring band partition (NBP), adjacent spectral fusion mechanism (ASFM), and feature context fusion (FCF).
+
+<div align="center">
+  
+  ![CoarSR](https://raw.githubusercontent.com/qianngli/Images/master/DualSR/CoarSR.png)  
+  *Fig. 1. Overview of the proposed CoarSR for hyperspectral image SR in coarse stage.*
+ 
+</div>
+
+- **Neighboring Band Partition (NBP)** groups a target band with its adjacent bands to enhance the relevance and utilization of band information, optimizing the super-resolution reconstruction process.
+- **Adjacent Spectral Fusion Mechanism (ASFM)** enhances image quality in hyperspectral image super-resolution by fusing information within and between groups, strengthening the integration of spatial and spectral data.
+- **Feature Context Fusion (FCF)** module enhances inter-band consistency and feature expression by fusing features of consecutive bands, akin to the operation of Recurrent Neural Networks (RNNs).
+
+### Fine stage
+Back-projection optimizes the reconstruction error through an efficient iterative strategy. For this algorithm, it usually utilizes multiple upsampling descriptors to upsample LR image and iteratively calculate the reconstruction error. Currently, back-projection is widely introduced in natural image SR which has been proved to develop the quality of SR image. However, the initialization which leads to an optimal solution remains unknown. The main reason is that the algorithm involves predefined hyperparameters, such as number of iteration and convolution kernel.To extend this algorithm, we further develop back-projection without predefined hyperparameters, which is shown in Fig. 2. 
+
+<div align="center">
+  
+  ![Enhanced back-projection](https://raw.githubusercontent.com/qianngli/Images/master/DualSR/Enhanced_back_projection.png)  
+  *Fig. 2. Enhanced back-projection method via spectral angle constraint.*
+ 
+</div>
+
+## Algorithm
+
+<div align="center">
+  
+Algorithm 1 Dual-Stage Hyperspectral Image SR Algorithm (DualSR)
+
+    Input: Hyperspectral image dataset containg LR-HR pair, scale factor s
+    Output: Super-resolved hyperspectral image $I_{SR}$
+    Randomly initialize coarse model parameters θ ;
+    while not converged do
+      Sample LR-HR batch;
+      while i≤L do
+        Partiton bands into three groups by Eqs. 2-4;
+        Update θ by excuting coarse model;
+        i←i+ 1;
+      end
+    end
+    Generate coarse model parameters θс;
+    Obtain coarse SR results U and V in terms of scale factor s;
+    Compute the reconstruction error under spectral angle constrain by Eq. 11
+    Obtain fine SR result $I_{SR}$ using Eq. 13
+
+</div>
+
 ## Dependencies  
 **PyTorch, MATLAB, NVIDIA GeForce GTX 1080 GPU.**
 - Python 3 (Recommend to use [Anaconda](https://www.anaconda.com/download/#linux))
