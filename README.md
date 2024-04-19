@@ -48,6 +48,9 @@ Back-projection optimizes the reconstruction error through an efficient iterativ
 
 ## Algorithm
 
+
+$ I_{SR} $
+
 <div align="center">
   
 Algorithm 1 Dual-Stage Hyperspectral Image SR Algorithm (DualSR)
