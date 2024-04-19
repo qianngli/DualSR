@@ -49,7 +49,7 @@ Back-projection optimizes the reconstruction error through an efficient iterativ
 ## Algorithm
 
 
-$ I_{SR} $
+$$ I_{SR} $$
 
 <div align="center">
   
