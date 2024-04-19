@@ -99,10 +99,11 @@ Two public datasets, i.e., [CAVE](https://www1.cs.columbia.edu/CAVE/databases/mu
 ## Implementation
 
 ### Pretrained model
-1. Clone this repo:
+Clone this repo:
  
         git clone https://github.com/qianngli/DualSR.git
         cd DualSR
+
 - For CoarSR
   1. Install PyTorch and dependencies from [http://pytorch.org](http://pytorch.org).  
   1. Remember to change the following path to yours：
