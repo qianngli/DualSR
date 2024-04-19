@@ -48,21 +48,21 @@ Back-projection optimizes the reconstruction error through an efficient iterativ
 
 ## Algorithm  
 
-Algorithm 1 Dual-Stage Hyperspectral Image SR Algorithm (DualSR)
+Dual-Stage Hyperspectral Image SR Algorithm (DualSR)
 
-> Input: Hyperspectral image dataset containg LR-HR pair, scale factor s  
-> Output: Super-resolved hyperspectral image $I_{SR}$  
-> Randomly initialize coarse model parameters θ ;  
-> while not converged do  
-> &ensp; Sample LR-HR batch;  
-> &ensp; while i≤L do  
-> &ensp;&ensp; Partiton bands into three groups by Eqs. 2-4;  
-> &ensp;&ensp; Update θ by excuting coarse model;  
-> &ensp;&ensp; i←i+ 1;  
-> &ensp; end  
-> end  
-> Generate coarse model parameters θс;  
-> Obtain coarse SR results U and V in terms of scale factor s;  
+> **Input:** Hyperspectral image dataset containg LR-HR pair, scale factor $s$  
+> **Output:** Super-resolved hyperspectral image $I_{SR}$  
+> Randomly initialize coarse model parameters $\theta$ ;  
+> **while** not *converged* **do**  
+> &ensp;&ensp; Sample LR-HR batch;  
+> &ensp;&ensp; **while** $ i ≤ L$ **do**  
+> &ensp;&ensp;&ensp;&ensp; Partiton bands into three groups by Eqs. 2-4;  
+> &ensp;&ensp;&ensp;&ensp; Update $\theta$ by excuting coarse model;  
+> &ensp;&ensp;&ensp;&ensp; $i \gets i + 1$;  
+> &ensp;&ensp; **end**  
+> **end** 
+> Generate coarse model parameters $\theta_{c}$;  
+> Obtain coarse $SR$ results $U$ and $V$ in terms of scale factor $s$;  
 > Compute the reconstruction error under spectral angle constrain by Eq. 11  
 > Obtain fine SR result $I_{SR}$ using Eq. 13  
   
