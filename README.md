@@ -71,6 +71,8 @@ Back-projection optimizes the reconstruction error through an efficient iterativ
 
 
 ## Dependencies  
+### CoarSR
+
 **PyTorch, MATLAB, NVIDIA GeForce GTX 1080 GPU.**
 - Python 3 (Recommend to use [Anaconda](https://www.anaconda.com/download/#linux))
 - [PyTorch >= 1.0](https://pytorch.org/)
@@ -79,6 +81,9 @@ Back-projection optimizes the reconstruction error through an efficient iterativ
 - TensorBoard: 
   - PyTorch >= 1.1: `pip install tb-nightly future`
   - PyTorch == 1.0: `pip install tensorboardX`
+
+### Enhanced back-projection
+**MATLAB**
 
 ## Dataset Preparation 
 Two public datasets, i.e., [CAVE](https://www1.cs.columbia.edu/CAVE/databases/multispectral/ "CAVE") and [Harvard](https://dataverse.harvard.edu/ "Harvard") are employed to verify the effectiveness of the proposed DualSR.  
@@ -112,7 +117,14 @@ Two public datasets, i.e., [CAVE](https://www1.cs.columbia.edu/CAVE/databases/mu
 
         parser.add_argument("--lr", type=int, default=1e-4, help="lerning rate")
   
-- For learning rate, it is gradually updated by a half at every **30** epochs.  
+- For learning rate, it is gradually updated by a half at every **30** epochs.
+
+### Train
+
+You can train or test directly from the command line as such:  
+  python train.py --cuda --datasetName CAVE --upscale_factor 4
+  python test.py --cuda --model_name checkpoint/model_4_epoch_xx.pth
+
 
 ## Result  
 - To quantitatively evaluate the proposed method, we apply Peak Signal-to-Noise Ratio (**PSNR**), Structural SIMilarity (**SSIM**), and Spectral Angle Mapper (**SAM**). Among these metrics, PSNR and SSIM are to evaluate the performance of super-resolved hyperspectral image in spatial domain. Generally, the higher their values are, the better the performance is. SAM is to analyze the performance of restored image in spectral domain. The smaller the value is, the less the spectral distortion is.
