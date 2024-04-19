@@ -50,21 +50,21 @@ Back-projection optimizes the reconstruction error through an efficient iterativ
 
 Algorithm 1 Dual-Stage Hyperspectral Image SR Algorithm (DualSR)
 
-Input: Hyperspectral image dataset containg LR-HR pair, scale factor s  
-Output: Super-resolved hyperspectral image $I_{SR}$  
-Randomly initialize coarse model parameters θ ;  
-while not converged do  
-  Sample LR-HR batch;  
-  while i≤L do  
-    Partiton bands into three groups by Eqs. 2-4;  
-    Update θ by excuting coarse model;  
-    i←i+ 1;  
-  end  
-end  
-Generate coarse model parameters θс;  
-Obtain coarse SR results U and V in terms of scale factor s;  
-Compute the reconstruction error under spectral angle constrain by Eq. 11  
-Obtain fine SR result $I_{SR}$ using Eq. 13  
+> Input: Hyperspectral image dataset containg LR-HR pair, scale factor s  
+> Output: Super-resolved hyperspectral image $I_{SR}$  
+> Randomly initialize coarse model parameters θ ;  
+> while not converged do  
+>   Sample LR-HR batch;  
+>   while i≤L do  
+>     Partiton bands into three groups by Eqs. 2-4;  
+>     Update θ by excuting coarse model;  
+>     i←i+ 1;  
+>   end  
+> end  
+> Generate coarse model parameters θс;  
+> Obtain coarse SR results U and V in terms of scale factor s;  
+> Compute the reconstruction error under spectral angle constrain by Eq. 11  
+> Obtain fine SR result $I_{SR}$ using Eq. 13  
   
 
 
