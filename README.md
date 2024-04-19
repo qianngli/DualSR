@@ -105,24 +105,24 @@ Two public datasets, i.e., [CAVE](https://www1.cs.columbia.edu/CAVE/databases/mu
 ![TABLE_VI](https://raw.githubusercontent.com/qianngli/Images/master/DualSR/TABLE_VI.png)  
 ![TABLE_VII](https://raw.githubusercontent.com/qianngli/Images/master/DualSR/TABLE_VII.png)  
 ### Qualitative Evaluation
-- **Figs. 1 and 2** present visual example for scale factor × 4 on two datasets. One observe that our method produces low absolute errors. In particular, there are more shallow edges in some positions, which indicates that the proposed approach can generate sharper edges and finer details. It is consistent with the analysis in Tables VI and VII, which further demonstrates that our approach can simultaneously learn spectral and spatial knowledge while generating diverse textures.  
+- **Figs. 3 and 4** present visual example for scale factor × 4 on two datasets. One observe that our method produces low absolute errors. In particular, there are more shallow edges in some positions, which indicates that the proposed approach can generate sharper edges and finer details. It is consistent with the analysis in Tables VI and VII, which further demonstrates that our approach can simultaneously learn spectral and spatial knowledge while generating diverse textures.  
 
   <div align="center">
       
     ![Fig8](https://raw.githubusercontent.com/qianngli/Images/master/DualSR/Fig8.png)  
-    *Fig. 1. Visual results in terms of spatial domain with existing SR methods on CAVE dataset. The results of balloons image are evaluated for scale factor × 4. The first line denotes SR results of 10-th band, and the second line denotes SR results of 20-th band.*  
+    *Fig. 3. Visual results in terms of spatial domain with existing SR methods on CAVE dataset. The results of balloons image are evaluated for scale factor × 4. The first line denotes SR results of 10-th band, and the second line denotes SR results of 20-th band.*  
     
     ![Fig9](https://raw.githubusercontent.com/qianngli/Images/master/DualSR/Fig9.png)  
-    *Fig. 2. Visual results in terms of spatial domain with existing SR methods on Harvard dataset. The results of imgd5 image are evaluated for scale factor × 4. The first line denotes SR results of 10-th band, and the second line denotes SR results of 20-th band.*  
+    *Fig. 4. Visual results in terms of spatial domain with existing SR methods on Harvard dataset. The results of imgd5 image are evaluated for scale factor × 4. The first line denotes SR results of 10-th band, and the second line denotes SR results of 20-th band.*  
 
   </div>
     
-- **Fig. 3** displays the spectral distortion of super-resolved hyperspectral image by randomly choosing two pixels on two datasets, respectively. We can see that our DualSR maintains the same curve as the ground-truth in most cases. It validates that the proposed method can yield higher spectral fidelity against other approaches.  
+- **Fig. 5** displays the spectral distortion of super-resolved hyperspectral image by randomly choosing two pixels on two datasets, respectively. We can see that our DualSR maintains the same curve as the ground-truth in most cases. It validates that the proposed method can yield higher spectral fidelity against other approaches.  
 
   <div align="center">
 
     ![Fig10](https://raw.githubusercontent.com/qianngli/Images/master/DualSR/Fig10.png)  
-    *Fig. 3. Visual comparison in terms of spectral domain by randomly selecting two pixels for scale factor × 4. The two on the left are the results of balloons image on CAVE dataset. The two on the right are the results of imgd5 image on Harvard dataset. Note that to avoid confusion, only two representative algorithms are compared with our methods.*  
+    *Fig. 5. Visual comparison in terms of spectral domain by randomly selecting two pixels for scale factor × 4. The two on the left are the results of balloons image on CAVE dataset. The two on the right are the results of imgd5 image on Harvard dataset. Note that to avoid confusion, only two representative algorithms are compared with our methods.*  
 
   </div>
 
