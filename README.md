@@ -99,10 +99,12 @@ Two public datasets, i.e., [CAVE](https://www1.cs.columbia.edu/CAVE/databases/mu
 - For learning rate, it is gradually updated by a half at every **30** epochs.  
 
 ## Result  
-- To quantitatively evaluate the proposed method, we apply Peak Signal-to-Noise Ratio (**PSNR**), Structural SIMilarity (**SSIM**), and Spectral Angle Mapper (**SAM**). Among these metrics, PSNR and SSIM are to evaluate the performance of super-resolved hyperspectral image in spatial domain. Generally, the higher their values are, the better the performance is. SAM is to analyze the performance of restored image in spectral domain. The smaller the value is, the less the spectral distortion is.   
+- To quantitatively evaluate the proposed method, we apply Peak Signal-to-Noise Ratio (**PSNR**), Structural SIMilarity (**SSIM**), and Spectral Angle Mapper (**SAM**). Among these metrics, PSNR and SSIM are to evaluate the performance of super-resolved hyperspectral image in spatial domain. Generally, the higher their values are, the better the performance is. SAM is to analyze the performance of restored image in spectral domain. The smaller the value is, the less the spectral distortion is.
+
+### Quantitative Evaluation
 ![TABLE_VI](https://raw.githubusercontent.com/qianngli/Images/master/DualSR/TABLE_VI.png)  
 ![TABLE_VII](https://raw.githubusercontent.com/qianngli/Images/master/DualSR/TABLE_VII.png)  
-
+### Qualitative Evaluation
 - Using known bicubic downsampling condition, we compare our proposed DualSR with existing multiple approaches on CAVE and Harvard datasets, including **3D-FCNN**, **EDSR**, **SSPSR**, **MCNet**, **SFCSR**, **ERCSR**.  
   - **Figs. 1 and 2** present visual example for scale factor × 4 on two datasets. One observe that our method produces low absolute errors. In particular, there are more shallow edges in some positions, which indicates that the proposed approach can generate sharper edges and finer details. It is consistent with the analysis in Tables VI and VII, which further demonstrates that our approach can simultaneously learn spectral and spatial knowledge while generating diverse textures.  
 
