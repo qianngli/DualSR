@@ -73,7 +73,7 @@ Back-projection optimizes the reconstruction error through an efficient iterativ
 ## Dependencies  
 This project includes two sets of code, designed for **Python** and **MATLAB** environments, respectively. Below are the detailed environment requirements.  
 ### CoarSR
-**PyTorch, MATLAB, NVIDIA GeForce GTX 1080 GPU.**
+**PyTorch, NVIDIA GeForce GTX 1080 GPU.**
 - Python 3 (Recommend to use [Anaconda](https://www.anaconda.com/download/#linux))
 - [PyTorch >= 1.0](https://pytorch.org/)
 - NVIDIA GPU + [CUDA](https://developer.nvidia.com/cuda-downloads)
@@ -88,7 +88,6 @@ This project includes two sets of code, designed for **Python** and **MATLAB** e
 - Recommended version: MATLAB R2019a or R2020a.
 - Toolbox Requirements.
   - Image Processing Toolbox
-  - Deep Learning Toolbox (formerly Neural Network Toolbox)
   - Parallel Computing Toolbox
 
 ## Dataset Preparation 
@@ -104,12 +103,15 @@ Two public datasets, i.e., [CAVE](https://www1.cs.columbia.edu/CAVE/databases/mu
  
         git clone https://github.com/qianngli/DualSR.git
         cd DualSR
-
-1. Install PyTorch and dependencies from [http://pytorch.org](http://pytorch.org).  
-1. You could download the [pre-trained model](https://github.com/qianngli/MulSR/blob/master/pre-train%20model.txt) from [Google Drive](https://drive.google.com/drive/folders/1LuXDv5__KDdC3EeJZU5DOMmbs0L4bE7I?usp=sharing).  
-1. Remember to change the following path to yours：
-   - `MulSR/train.py` line 36, 39.
-   - `MulSR/fine.py` line 71, 72.
+- For CoarSR
+  1. Install PyTorch and dependencies from [http://pytorch.org](http://pytorch.org).  
+  1. Remember to change the following path to yours：
+     - `DualSR/CoarSR/train.py` line 33, 35.
+     - `DualSR/CoarSR/train.py` line 18, 19.
+- For FineSR
+  1. Install MATLAB and toolbox Requirements from [https://www.mathworks.com/](https://www.mathworks.com/).
+  1. Remember to change the following path to yours：
+     - `DualSR/FineSR/main.m` line 4, 5.
 
 ### Main parameter settings
 - For our network, the convolution kernel after concatenation is set to **1 × 1**, which reduces the number of channels.  
@@ -117,16 +119,15 @@ Two public datasets, i.e., [CAVE](https://www1.cs.columbia.edu/CAVE/databases/mu
 - The kernel of other convolution operations involved in the network is fixed to **3 × 3**, and the number of convolution kernels is defined as **64**.  
 
         parser.add_argument('--n_feats', type=int, default=64, help='number of feature maps')
-  
+
 - In the training phase, our network is trained using **L1** loss function. The mini-batch is set to **64**.  
 - We optimize our network using **ADAM** optimizer with **β1=0.9** and **β2=0.999** and initial learning rate **10^−4**.  
 
         parser.add_argument("--lr", type=int, default=1e-4, help="lerning rate")
-  
+
 - For learning rate, it is gradually updated by a half at every **30** epochs.
 
 ### Train
-
 You can train or test directly from the command line as such:  
 
     python train.py --cuda --datasetName CAVE --upscale_factor 4  
