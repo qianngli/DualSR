@@ -71,8 +71,8 @@ Back-projection optimizes the reconstruction error through an efficient iterativ
 
 
 ## Dependencies  
+This project includes two sets of code, designed for **Python** and **MATLAB** environments, respectively. Below are the detailed environment requirements.  
 ### CoarSR
-
 **PyTorch, MATLAB, NVIDIA GeForce GTX 1080 GPU.**
 - Python 3 (Recommend to use [Anaconda](https://www.anaconda.com/download/#linux))
 - [PyTorch >= 1.0](https://pytorch.org/)
@@ -82,8 +82,14 @@ Back-projection optimizes the reconstruction error through an efficient iterativ
   - PyTorch >= 1.1: `pip install tb-nightly future`
   - PyTorch == 1.0: `pip install tensorboardX`
 
-### Enhanced back-projection
+### FineSR
 **MATLAB**
+- Minimum version: MATLAB R2014b and above.
+- Recommended version: MATLAB R2019a or R2020a.
+- Toolbox Requirements.
+  - Image Processing Toolbox
+  - Deep Learning Toolbox (formerly Neural Network Toolbox)
+  - Parallel Computing Toolbox
 
 ## Dataset Preparation 
 Two public datasets, i.e., [CAVE](https://www1.cs.columbia.edu/CAVE/databases/multispectral/ "CAVE") and [Harvard](https://dataverse.harvard.edu/ "Harvard") are employed to verify the effectiveness of the proposed DualSR.  
