@@ -56,15 +56,15 @@ Dual-Stage Hyperspectral Image SR Algorithm (DualSR)
 > **while** not *converged* **do**  
 > &ensp;&ensp; Sample LR-HR batch;  
 > &ensp;&ensp; **while** $i≤L$ **do**  
-> &ensp;&ensp;&ensp;&ensp; Partiton bands into three groups by Eqs. 2-4;  
-> &ensp;&ensp;&ensp;&ensp; Update $\theta$ by excuting coarse model;  
+> &ensp;&ensp;&ensp;&ensp; Partiton bands into three groups ;  
+> &ensp;&ensp;&ensp;&ensp; Update $\theta$ by excuting coarse model ;  
 > &ensp;&ensp;&ensp;&ensp; $i \gets i+1$;  
 > &ensp;&ensp; **end**  
 > **end** 
-> Generate coarse model parameters $\theta_{c}$;  
-> Obtain coarse $SR$ results $U$ and $V$ in terms of scale factor $s$;  
-> Compute the reconstruction error under spectral angle constrain by Eq. 11  
-> Obtain fine SR result $I_{SR}$ using Eq. 13  
+> Generate coarse model parameters $\theta_{c}$ ;  
+> Obtain coarse SR results $U$ and $V$ in terms of scale factor $s$ ;  
+> Compute the reconstruction error under spectral angle constrain  
+> Obtain fine SR result $I_{SR}$ using  
   
 
 
