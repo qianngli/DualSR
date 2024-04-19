@@ -55,10 +55,10 @@ Dual-Stage Hyperspectral Image SR Algorithm (DualSR)
 > Randomly initialize coarse model parameters $\theta$ ;  
 > **while** not *converged* **do**  
 > &ensp;&ensp; Sample LR-HR batch;  
-> &ensp;&ensp; **while** $ i ≤ L$ **do**  
+> &ensp;&ensp; **while** $i≤L$ **do**  
 > &ensp;&ensp;&ensp;&ensp; Partiton bands into three groups by Eqs. 2-4;  
 > &ensp;&ensp;&ensp;&ensp; Update $\theta$ by excuting coarse model;  
-> &ensp;&ensp;&ensp;&ensp; $i \gets i + 1$;  
+> &ensp;&ensp;&ensp;&ensp; $i \gets i+1$;  
 > &ensp;&ensp; **end**  
 > **end** 
 > Generate coarse model parameters $\theta_{c}$;  
