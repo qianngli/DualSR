@@ -86,7 +86,21 @@ Two public datasets, i.e., [CAVE](https://www1.cs.columbia.edu/CAVE/databases/mu
 - In our work, we randomly select **80%** of the data as the training set and the rest for testing.  
 - We augment the given training data by choosing **24** patches. With respect to each patch, its size is scaled **1**, **0.75**, and **0.5** times, respectively. We rotate these patches **90°** and flip them horizontally. Through various blur kernels, we then subsample these patches into LR hyperspectral images with the size of **L × 32 × 32**.  
 
-## Implementation  
+## Implementation
+
+### Pretrained model
+1. Clone this repo:
+ 
+        git clone https://github.com/qianngli/DualSR.git
+        cd DualSR
+
+1. Install PyTorch and dependencies from [http://pytorch.org](http://pytorch.org).  
+1. You could download the [pre-trained model](https://github.com/qianngli/MulSR/blob/master/pre-train%20model.txt) from [Google Drive](https://drive.google.com/drive/folders/1LuXDv5__KDdC3EeJZU5DOMmbs0L4bE7I?usp=sharing).  
+1. Remember to change the following path to yours：
+   - `MulSR/train.py` line 36, 39.
+   - `MulSR/fine.py` line 71, 72.
+
+### Main parameter settings
 - For our network, the convolution kernel after concatenation is set to **1 × 1**, which reduces the number of channels.  
 - We adopt sub-pixel convolution layer to upscale the features into HR space in terms of upsampling operation.  
 - The kernel of other convolution operations involved in the network is fixed to **3 × 3**, and the number of convolution kernels is defined as **64**.  
@@ -143,7 +157,7 @@ Two public datasets, i.e., [CAVE](https://www1.cs.columbia.edu/CAVE/databases/mu
 [2] Q. Wang, **Q. Li**, and X. Li, “Hyperspectral Image Superresolution Using Spectrum and Feature Context,” *IEEE Transactions on Industrial Electronics*, vol. 68, no. 11, pp. 11276-11285, 2021.  
 [3] **Q. Li**, Q. Wang, and X. Li, “Mixed 2D/3D convolutional network for hyperspectral image super-resolution,” *Remote Sensing*, vol. 12, no. 10, pp. 1660, 2020.  
 [4] S. Jia, G. Tang, J. Zhu, and **Q. Li**, “A Novel Ranking-Based Clustering Approach for Hyperspectral Band Selection,” *IEEE Transactions on Geoscience and Remote Sensing*, vol. 54, no. 1, pp. 88-102, 2016.  
-[5] **Q. Li**, Q. Wang and X. Li, “Hyperspectral Image Super-Resolution Via Adjacent Spectral Fusion Strategy,” *Proc. IEEE International Conference on Acoustics*, pp. 1645-1649, 2021.  
+[5] **Q. Li**, Q. Wang, and X. Li, “Hyperspectral Image Super-Resolution Via Adjacent Spectral Fusion Strategy,” *Proc. IEEE International Conference on Acoustics*, pp. 1645-1649, 2021.  
 
 --------
 If you has any questions, please send e-mail to liqmges@gmail.com.
