@@ -134,7 +134,6 @@ You can train or test directly from the command line as such:
     python train.py --cuda --datasetName CAVE --upscale_factor 4  
     python test.py --cuda --model_name checkpoint/model_4_epoch_xx.pth  
 
-
 ## Result  
 - To quantitatively evaluate the proposed method, we apply Peak Signal-to-Noise Ratio (**PSNR**), Structural SIMilarity (**SSIM**), and Spectral Angle Mapper (**SAM**). Among these metrics, PSNR and SSIM are to evaluate the performance of super-resolved hyperspectral image in spatial domain. Generally, the higher their values are, the better the performance is. SAM is to analyze the performance of restored image in spectral domain. The smaller the value is, the less the spectral distortion is.
 - Using known bicubic downsampling condition, we compare our proposed DualSR with existing multiple approaches on CAVE and Harvard datasets, including **3D-FCNN**, **EDSR**, **SSPSR**, **MCNet**, **SFCSR**, **ERCSR**.  
