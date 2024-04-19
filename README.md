@@ -48,13 +48,13 @@ Back-projection optimizes the reconstruction error through an efficient iterativ
 
 ## Algorithm  
 
-Dual-Stage Hyperspectral Image SR Algorithm (DualSR)
+*Dual-Stage Hyperspectral Image SR Algorithm (DualSR)*
 
 > **Input:** Hyperspectral image dataset containg LR-HR pair, scale factor $s$  
 > **Output:** Super-resolved hyperspectral image $I_{SR}$  
 > Randomly initialize coarse model parameters $\theta$ ;  
 > **while** not *converged* **do**  
-> &ensp;&ensp; Sample LR-HR batch;  
+> &ensp;&ensp; Sample LR-HR batch ;  
 > &ensp;&ensp; **while** $i≤L$ **do**  
 > &ensp;&ensp;&ensp;&ensp; Partiton bands into three groups ;  
 > &ensp;&ensp;&ensp;&ensp; Update $\theta$ by excuting coarse model ;  
