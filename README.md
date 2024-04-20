@@ -95,7 +95,7 @@ Two public datasets, i.e., [CAVE](https://www1.cs.columbia.edu/CAVE/databases/mu
 ## Implementation
 
 ### Pretrained model
-Clone this repo:
+Clone this repository:
  
         git clone https://github.com/qianngli/DualSR.git
         cd DualSR
