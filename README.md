@@ -84,11 +84,7 @@ This project includes two sets of code, designed for **Python** and **MATLAB** e
 
 ### FineSR
 **MATLAB**
-- Minimum version: MATLAB R2014b and above.
 - Recommended version: MATLAB R2019a or R2020a.
-- Toolbox Requirements.
-  - Image Processing Toolbox
-  - Parallel Computing Toolbox
 
 ## Dataset Preparation 
 Two public datasets, i.e., [CAVE](https://www1.cs.columbia.edu/CAVE/databases/multispectral/ "CAVE") and [Harvard](https://dataverse.harvard.edu/ "Harvard") are employed to verify the effectiveness of the proposed DualSR.  
