@@ -48,9 +48,9 @@ Back-projection optimizes the reconstruction error through an efficient iterativ
 
 *Fig. 2. Enhanced back-projection method via spectral angle constraint.*
 
-## Algorithm  
+## Pseudocode
 
-*Dual-Stage Hyperspectral Image SR Algorithm (DualSR)*
+*Dual-Stage Hyperspectral Image SR Pseudocode (DualSR)*
 
 > **Input:** Hyperspectral image dataset containg LR-HR pair, scale factor $s$  
 > **Output:** Super-resolved hyperspectral image $I_{SR}$  
@@ -128,7 +128,7 @@ Clone this repo:
 
 - For learning rate, it is gradually updated by a half at every **30** epochs.
 
-### Train
+### Train & Test
 You can train or test directly from the command line as such:  
 
     python train.py --cuda --datasetName CAVE --upscale_factor 4  
